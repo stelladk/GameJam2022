@@ -194,7 +194,7 @@ MonoBehaviour:
     m_Bits: 55
   m_GroundCheck: {fileID: 5757141766048811772}
   m_CeilingCheck: {fileID: 5757141765511661859}
-  m_CrouchDisableCollider: {fileID: 0}
+  m_CrouchDisableCollider: {fileID: 5757141764785963187}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827124f3941a8469dadae2a377efed83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 20
   runSpeed: 40
   animator: {fileID: 0}
 --- !u!1 &5757141765511661860

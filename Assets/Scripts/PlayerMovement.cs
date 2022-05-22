@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     bool isWalking = false;
     bool isJumping = false;
+    bool isCrouching = false;
 
     void Awake()
     {
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private void handleMovement()
     {
         Debug.Log(inputX);
-        controller.Move(inputX * moveSpeed * Time.fixedDeltaTime, false, isJumpPressed);
+        controller.Move(inputX * moveSpeed * Time.fixedDeltaTime, isCrouching, isJumpPressed);
     }
 
     private void handleFiring()
@@ -75,6 +76,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (inputX != 0) isWalking = true;
         else isWalking = false;
+
+        if (inputY < 0) isCrouching = true;
+        else isCrouching = false;
     }
 
     void OnJumpInput(InputAction.CallbackContext context)
