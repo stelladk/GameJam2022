@@ -5,27 +5,29 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float runSpeed = 40f;
+    [SerializeField] float moveSpeed = 20f;
 
     // Input Actions
     InputActions inputActions;
     bool isJumpPressed = false;
-    bool isFiringPressed = false;
+    bool isAttackPressed = false;
 
     // Controls
     CharacterController2D controller;
     private float inputX, inputY; 
 
     // Animations
-    public Animator animator;
+    Animator animator;
     bool isWalking = false;
-    bool isJumping = false;
     bool isCrouching = false;
+
+    // Combat
+    PlayerCombat combat;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        combat = GetComponent<PlayerCombat>();
         controller = GetComponent<CharacterController2D>();
         inputActions = new InputActions();
 
@@ -36,8 +38,8 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Player.Jump.started += OnJumpInput;
         inputActions.Player.Jump.canceled += OnJumpInput;
 
-        inputActions.Player.Fire.started += OnFiringInput;
-        inputActions.Player.Fire.canceled += OnFiringInput;
+        inputActions.Player.Attack.started += OnAttackInput;
+        inputActions.Player.Attack.canceled += OnAttackInput;
     }
     
     void OnEnable()
@@ -53,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         handleMovement();
-        handleFiring();
+        handleAnimations();
     }
 
     private void handleMovement()
@@ -62,9 +64,11 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(inputX * moveSpeed * Time.fixedDeltaTime, isCrouching, isJumpPressed);
     }
 
-    private void handleFiring()
+    private void handleAnimations()
     {
-        
+        animator.SetBool("isWalking", isWalking);
+        animator.SetBool("isJumping", isJumpPressed);
+        animator.SetBool("isCrouching", isCrouching);
     }
 
     // Input Callbacks
@@ -86,8 +90,13 @@ public class PlayerMovement : MonoBehaviour
         isJumpPressed = context.ReadValueAsButton();
     }
 
-    void OnFiringInput(InputAction.CallbackContext context)
+    void OnAttackInput(InputAction.CallbackContext context)
     {
-        isFiringPressed = context.ReadValueAsButton();
+        isAttackPressed = context.ReadValueAsButton();
+        if (isAttackPressed) {
+            combat.MeleeAttack();
+            animator.SetTrigger("MeleeAttack");
+            isAttackPressed = false;
+        }
     }
 }
