@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
 
         inputActions.Player.Attack.started += OnAttackInput;
         inputActions.Player.Attack.canceled += OnAttackInput;
+
+        inputActions.Player.RangedAttack.started += OnRangedAttackInput;
+        inputActions.Player.RangedAttack.canceled += OnRangedAttackInput;
     }
     
     void OnEnable()
@@ -96,6 +99,16 @@ public class PlayerMovement : MonoBehaviour
         if (isAttackPressed) {
             combat.MeleeAttack();
             animator.SetTrigger("MeleeAttack");
+            isAttackPressed = false;
+        }
+    }
+
+    void OnRangedAttackInput(InputAction.CallbackContext context)
+    {
+        isAttackPressed = context.ReadValueAsButton();
+        if (isAttackPressed) {
+            combat.RangedAttack();
+            animator.SetTrigger("RangedAttack");
             isAttackPressed = false;
         }
     }
