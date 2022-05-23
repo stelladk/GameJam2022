@@ -2163,6 +2163,7 @@ GameObject:
   - component: {fileID: 1721559637}
   - component: {fileID: 1721559636}
   - component: {fileID: 1721559638}
+  - component: {fileID: 1721559639}
   m_Layer: 7
   m_Name: soldier_idle
   m_TagString: Untagged
@@ -2261,6 +2262,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6114199, y: 0.90210724}
   m_EdgeRadius: 0
+--- !u!114 &1721559639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721559635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b1b48f40724af59d86beff4d9f20c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1001 &1846793709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2632,3 +2646,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de3665308b3864d66883e48db4909514, type: 3}
+--- !u!1 &5757141765833544912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5757141764785963194, guid: de3665308b3864d66883e48db4909514, type: 3}
+  m_PrefabInstance: {fileID: 5757141765833544911}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5757141765833544913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757141765833544912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec33586c657894745bf468f06323f31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

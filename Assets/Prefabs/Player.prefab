@@ -44,8 +44,9 @@ GameObject:
   - component: {fileID: 5757141764785963189}
   - component: {fileID: 5757141764785963187}
   - component: {fileID: 5757141764785963188}
-  - component: {fileID: 5757141764785963190}
   - component: {fileID: 5757141765833544913}
+  - component: {fileID: 395072529826884171}
+  - component: {fileID: 5757141764785963190}
   - component: {fileID: 5757141764785963186}
   - component: {fileID: 2761630551891615787}
   m_Layer: 6
@@ -206,34 +207,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.23}
   serializedVersion: 2
   m_Radius: 0.3226152
---- !u!114 &5757141764785963190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5757141764785963194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdf6a33f064ea4ec8be06021e5e6da16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_JumpForce: 200
-  m_CrouchSpeed: 0.4
-  m_MovementSmoothing: 0.05
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 55
-  m_GroundCheck: {fileID: 5757141766048811772}
-  m_CeilingCheck: {fileID: 5757141765511661859}
-  m_CrouchDisableCollider: {fileID: 5757141764785963187}
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &5757141765833544913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +237,53 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &395072529826884171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757141764785963194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1e9cfe96e19416daf7e5a0b168b9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputX: 0
+  inputY: 0
+  isWalkingPressed: 0
+  isCrouchingPressed: 0
+  isJumpPressed: 0
+  isAttackPressed: 0
+  isRangedAttackPressed: 0
+--- !u!114 &5757141764785963190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757141764785963194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf6a33f064ea4ec8be06021e5e6da16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_JumpForce: 200
+  m_CrouchSpeed: 0.4
+  m_MovementSmoothing: 0.05
+  m_AirControl: 1
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 55
+  m_GroundCheck: {fileID: 5757141766048811772}
+  m_CeilingCheck: {fileID: 5757141765511661859}
+  m_CrouchDisableCollider: {fileID: 5757141764785963187}
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCrouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5757141764785963186
 MonoBehaviour:
   m_ObjectHideFlags: 0

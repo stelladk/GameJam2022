@@ -10,11 +10,36 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] float rangedAttackRange = 1f;
     [SerializeField] Texture2D attackSprite;
     [SerializeField] LayerMask enemyLayer;
+
+    InputHandler inputHandler;
+    Animator animator;
+    Player player;
+
+    void Awake()
+    {
+        inputHandler = GetComponent<InputHandler>();
+        animator = GetComponent<Animator>();
+        player = GetComponent<Player>();
+    }
     
 
     void Update()
     {
+        handleAttacks();
+    }
 
+    void handleAttacks()
+    {
+        if (inputHandler.isAttackPressed) {
+            MeleeAttack();
+            animator.SetTrigger("MeleeAttack");
+            inputHandler.isAttackPressed = false;
+        }
+        if (inputHandler.isRangedAttackPressed) {
+            RangedAttack();
+            animator.SetTrigger("RangedAttack");
+            inputHandler.isRangedAttackPressed = false;
+        }
     }
 
     public void MeleeAttack()
@@ -22,6 +47,7 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(meleeAttackPoint.position, meleeAttackRange, enemyLayer);
         foreach(Collider2D enemy in hitEnemies){
             Debug.Log("Hit enemy melee "+ enemy.name);
+            enemy.GetComponent<Enemy>().TakeDamage(player.meleeDamage);
         }
     }
 
@@ -35,5 +61,11 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies){
             Debug.Log("Hit enemy ranged "+ enemy.name);
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if(meleeAttackPoint == null) return;
+        Gizmos.DrawWireSphere(meleeAttackPoint. position, meleeAttackRange);
     }
 }
