@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
+    public GameObject deathEffect;
     public int maxHealth = 100;
     public int meleeDamage = 40;
     int currentHealth;

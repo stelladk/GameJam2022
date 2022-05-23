@@ -24,5 +24,7 @@ public class Enemy : Character
     public override void Die()
     {
         Debug.Log("Enemy died!");
+        Instantiate(deathEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

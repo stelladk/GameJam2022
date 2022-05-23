@@ -1279,7 +1279,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &610786985
 PrefabInstance:
@@ -1852,7 +1852,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1413163588
 GameObject:
@@ -1898,7 +1898,7 @@ Transform:
   - {fileID: 1531730699}
   - {fileID: 234414772}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1531730698
 PrefabInstance:
@@ -2274,7 +2274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b1b48f40724af59d86beff4d9f20c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 2658800348899577362, guid: 1fbbad7c43e8c4b2b9cbd3b0b3fe3d53, type: 3}
   maxHealth: 100
+  meleeDamage: 40
 --- !u!1001 &1846793709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2598,7 +2600,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5757141764785963191, guid: de3665308b3864d66883e48db4909514, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5757141764785963191, guid: de3665308b3864d66883e48db4909514, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2646,20 +2648,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de3665308b3864d66883e48db4909514, type: 3}
---- !u!1 &5757141765833544912 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5757141764785963194, guid: de3665308b3864d66883e48db4909514, type: 3}
-  m_PrefabInstance: {fileID: 5757141765833544911}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5757141765833544913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5757141765833544912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec33586c657894745bf468f06323f31c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1326916982
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1326916983}
-  m_Layer: 6
-  m_Name: RangedAttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1326916983
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326916982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5757141764785963191}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5757141764785963194
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,6 +19,7 @@ GameObject:
   - component: {fileID: 5757141764785963190}
   - component: {fileID: 5757141764785963186}
   - component: {fileID: 2761630551891615787}
+  - component: {fileID: 1138862133912309211}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -70,7 +41,6 @@ Transform:
   - {fileID: 5757141765511661859}
   - {fileID: 5757141766048811772}
   - {fileID: 5933935364403831309}
-  - {fileID: 1326916983}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -309,14 +279,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86c03a513b0b409f98d480596c7a38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeAttackPoint: {fileID: 5933935364403831309}
+  attackPoint: {fileID: 5933935364403831309}
   meleeAttackRange: 0.5
-  rangedAttackPoint: {fileID: 1326916983}
   rangedAttackRange: 1
-  attackSprite: {fileID: 2800000, guid: d60765fdce94e4883ae3df53307278b4, type: 3}
+  attackSprite: {fileID: 4066266160400879467, guid: bf4301430aa87484d8879b8f0890883f, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1138862133912309211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757141764785963194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec33586c657894745bf468f06323f31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  meleeDamage: 40
 --- !u!1 &5757141765511661860
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5933935364403831309}
   m_Layer: 6
-  m_Name: MeleeAttackPoint
+  m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,7 +384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5925306295661251445}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.328, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0.328, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5757141764785963191}
