@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3a752dcf1c4444d9a5cf99888ed3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 0}
+  dialogueManager: {fileID: 0}
+  player: {fileID: 0}

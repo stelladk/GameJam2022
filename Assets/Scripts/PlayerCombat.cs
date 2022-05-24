@@ -7,7 +7,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] Transform attackPoint;
     [SerializeField] float meleeAttackRange = 0.5f;
     // [SerializeField] Transform rangedAttackPoint;
-    [SerializeField] float rangedAttackRange = 1f;
+    // [SerializeField] float rangedAttackRange = 1f;
     [SerializeField] GameObject attackSprite;
     [SerializeField] LayerMask enemyLayer;
 

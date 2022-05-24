@@ -37,9 +37,9 @@ public class DialoguePanel : MonoBehaviour
             dialogue.text = "";
         }
 
-        if(sound != null && !speeker.isPlaying){
-            speeker.PlayOneShot(sound, volume);
-        }
+        // if(sound != null && !speeker.isPlaying){
+        //     speeker.PlayOneShot(sound, volume);
+        // }
     }
 
     public void endDialogue()

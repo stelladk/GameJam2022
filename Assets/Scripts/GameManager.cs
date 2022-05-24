@@ -6,10 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public enum GameState {GAMESTART, GAMEPLAY, DEATH};
+    public enum GameState {GAMESTART, GAMEPLAY, CUTSCENE, DEATH};
     private GameState gameState;
 
-    [SerializeField] DialoguePanel dialoguePanel;
+    [SerializeField] DialogueManager dialogueManager;
+    public GameObject player;
+
+    bool hasPowers = false;
 
     void Awake()
     {
@@ -18,10 +21,14 @@ public class GameManager : MonoBehaviour
             Instance = this;
             //State
             gameState = GameState.GAMESTART;
-            OnGameStart();
         } else if (Instance != this) {
             Destroy(gameObject);
         }
+    }
+
+    void Update()
+    {
+        handleGameState();
     }
 
     public GameState GetState()
@@ -29,13 +36,37 @@ public class GameManager : MonoBehaviour
         return gameState;
     }
 
-    public void OnGameStart()
+    void handleGameState()
     {
-        Debug.Log("OnGameStart");
-        dialoguePanel.createDialogue("But we don't have time for small talk they are after me!", null, 0);
+        switch(gameState)
+        {
+            case GameState.GAMESTART:
+                OnGameStart();
+                break;
+            case GameState.CUTSCENE:
+                OnStartCutScene();
+                break;
+            case GameState.DEATH:
+                OnDeath();
+                break;
+        }
     }
 
-    public void Death()
+    public void OnGameStart()
+    {
+        gameState = GameState.GAMEPLAY;
+        Debug.Log("OnGameStart");
+        string[] speeches = new string[] { "Hey there! My name is Thomas!", "But we don't have time for small talk they are after me!", "Help me move with the WASD or Arrow keys! I Jump with Space!", "Help me protect myself with Ctrl!", "And please try not to get me killed! Thank you!"};
+        dialogueManager.StartDialogue(speeches);
+        
+    }
+
+    public void OnDeath()
+    {
+
+    }
+
+    public void OnStartCutScene()
     {
 
     }

@@ -1,25 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : Character
 {
-    // [SerializeField] int maxHealth = 100;
-    // int currentHealth;
+    [SerializeField] float lookRadius = 20f;
+    Transform target;
+    NavMeshAgent agent;
 
-    // void Start()
-    // {
-    //     currentHealth = maxHealth;
-    // }
+    void Start()
+    {
+        target = GameManager.Instance.player.transform;
+        agent = GetComponent<NavMeshAgent>();
+    }
 
-    // public void TakeDamage(int damage)
-    // {
-    //     currentHealth -= damage;
+    void Update()
+    {
+        ChaseTarget();
+    }
 
-    //     if(currentHealth <= 0){
-    //         Die();
-    //     }
-    // }
+    void ChaseTarget()
+    {
+        float distance = Vector3.Distance(target.position, transform.position);
+
+        if (distance <= lookRadius){
+            agent.SetDestination(target.position);
+
+            if (distance <= agent.stoppingDistance){
+                //Attack
+                FaceTarget();
+            }
+        }
+    }
+
+    void FaceTarget()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
 
     public override void Die()
     {
