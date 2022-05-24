@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public class GameManager : MonoBehaviour
         return gameState;
     }
 
+    public bool GetPowers()
+    {
+        return hasPowers;
+    }
+
     void handleGameState()
     {
         switch(gameState)
@@ -63,11 +69,21 @@ public class GameManager : MonoBehaviour
 
     public void OnDeath()
     {
-
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     public void OnStartCutScene()
     {
+        gameState = GameState.GAMEPLAY;
+        hasPowers = true;
+        string[] speeches = new string[] {"What happened? Am I dead?", "I feel a strange tingling on my hands...", "Press F and see what happens"};
+        dialogueManager.StartDialogue(speeches);
 
+    }
+
+    public void OnToxicDeath()
+    {
+        gameState = GameState.CUTSCENE;
     }
 }

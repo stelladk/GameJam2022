@@ -53,7 +53,10 @@ public class PlayerCombat : MonoBehaviour
 
     public void RangedAttack()
     {
-        Instantiate(attackSprite, attackPoint.position, attackPoint.rotation);
+        bool hasPowers = GameManager.Instance.GetPowers();
+        if (hasPowers) {
+            Instantiate(attackSprite, attackPoint.position, attackPoint.rotation);
+        }
 
         // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(rangedAttackPoint.position, rangedAttackRange, enemyLayer);
         // foreach(Collider2D enemy in hitEnemies){
