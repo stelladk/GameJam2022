@@ -19,6 +19,7 @@ public class Player : Character
     public override void Die()
     {
         Debug.Log("YOU DIED");
+        GameManager.Instance.OnDeath();
     }
 
     void OnTriggerEnter2D(Collider2D col)
