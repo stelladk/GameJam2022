@@ -45,3 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 0}
   player: {fileID: 0}
+  enemyPrefab: {fileID: 3931107721160521993, guid: a7a99f287e3994a6eb712419dff5fcc3, type: 3}
+  enemySpawnRateMax: 15
+  enemySpawnRateMin: 10
+  enemySpawnRateDecrease: 1

@@ -28,7 +28,8 @@ public class AIPatrol : MonoBehaviour
     void Awake()
     {
         // Debug.Log(GameManager);
-        target = GameManager.Instance.player.transform;
+        // target = GameManager.Instance.player.transform;
+        target = GameObject.FindWithTag("Player").transform;
 
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();

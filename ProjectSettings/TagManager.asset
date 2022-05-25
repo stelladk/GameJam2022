@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Toxic
   - Deadly
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

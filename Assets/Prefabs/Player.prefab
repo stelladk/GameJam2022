@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 0}
   maxHealth: 100
-  meleeDamage: 40
+  meleeDamage: 20
 --- !u!1 &5757141765511661860
 GameObject:
   m_ObjectHideFlags: 0
