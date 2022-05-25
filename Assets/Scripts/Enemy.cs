@@ -5,22 +5,21 @@ using Pathfinding;
 
 public class Enemy : Character
 {
-    [SerializeField] float lookRadius = 20f;
-    public float speed = 20f;
-    public float nextWaypointDistance = 3f;
-    Transform target;
+    
+    // public float speed = 20f;
+    // public float nextWaypointDistance = 3f;
+    // Transform target;
+    // AIPatrol patrolAgent;
     // NavMeshAgent agent;
 
-    Path path;
-    int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
 
-    Seeker seeker;
-    Rigidbody2D rb;
+    // Seeker seeker;
+    // Rigidbody2D rb;
 
     void Start()
     {
-        target = GameManager.Instance.player.transform;
+    //     target = GameManager.Instance.player.transform;
+        // patrolAgent = GetComponent<AIPatrol>();
         // agent = GetComponent<NavMeshAgent>();
         // seeker = GetComponent<Seeker>();
         // rb = GetComponent<Rigidbody2D>();
@@ -29,38 +28,10 @@ public class Enemy : Character
         currentHealth = maxHealth;
     }
 
-    void OnPathComplete(Path p)
-    {
-        if(!p.error){
-            path = p;
-            currentWaypoint = 0;
-        }
-    }
 
     void Update()
     {
-        ChaseTarget();
-    }
 
-    void ChaseTarget()
-    {
-        // float distance = Vector3.Distance(target.position, transform.position);
-
-        // if (distance <= lookRadius){
-        //     agent.SetDestination(target.position);
-
-        //     if (distance <= agent.stoppingDistance){
-        //         //Attack
-        //         FaceTarget();
-        //     }
-        // }
-    }
-
-    void FaceTarget()
-    {
-        // Vector3 direction = (target.position - transform.position).normalized;
-        // Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        // transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
 

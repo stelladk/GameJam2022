@@ -244,7 +244,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 1335
   m_GroundCheck: {fileID: 5757141766048811772}
   m_CeilingCheck: {fileID: 5757141765511661859}
   m_CrouchDisableCollider: {fileID: 5757141764785963187}
@@ -281,7 +281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 5933935364403831309}
   meleeAttackRange: 0.5
-  rangedAttackRange: 1
   attackSprite: {fileID: 4066266160400879467, guid: bf4301430aa87484d8879b8f0890883f, type: 3}
   enemyLayer:
     serializedVersion: 2
@@ -298,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec33586c657894745bf468f06323f31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 0}
   maxHealth: 100
   meleeDamage: 40
 --- !u!1 &5757141765511661860
