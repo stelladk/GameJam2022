@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Player : Character
 {
-    // Start is called before the first frame update
+    Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -19,6 +24,7 @@ public class Player : Character
     public override void Die()
     {
         Debug.Log("YOU DIED");
+        animator.SetTrigger("Death");
         GameManager.Instance.OnDeath();
     }
 
@@ -30,7 +36,7 @@ public class Player : Character
             TakeDamage(10);
         }
         if(col.gameObject.tag == "Toxic"){
-            TakeDamage(200);
+            // TakeDamage(200);
             ToxicDeath();
         }
     }

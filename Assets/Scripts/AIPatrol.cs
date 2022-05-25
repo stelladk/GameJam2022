@@ -6,6 +6,9 @@ public class AIPatrol : MonoBehaviour
 {
     [SerializeField] float lookRadius = 20f;
     public float stoppindDistance = 1f;
+    [SerializeField] Transform attackPoint;
+    [SerializeField] LayerMask playerLayer;
+    public float attackRange = 0.5f;
     public float cooldown = 1f;
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -15,25 +18,29 @@ public class AIPatrol : MonoBehaviour
     Rigidbody2D rb;
     Collider2D collider;
     Animator animator;
+    Enemy enemy;
 
-    public Transform target;
+    Transform target;
 
     private bool mustTurn;
+    private bool canAttack;
 
     void Awake()
     {
         // Debug.Log(GameManager);
-        // target = GameManager.Instance.player.transform;
+        target = GameManager.Instance.player.transform;
 
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
+        enemy = GetComponent<Enemy>();
     }
 
     void Start()
     {
         mustPatrol = true;
         mustTurn = false;
+        canAttack = true;
     }
 
     void Update()
@@ -48,7 +55,9 @@ public class AIPatrol : MonoBehaviour
             FaceTarget();
             mustPatrol = false;
             ChaseTarget();
-            StartCoroutine(Attack());
+            if(canAttack){
+                StartCoroutine(Attack());
+            }
         }else{
             mustPatrol = true;
         }
@@ -56,9 +65,9 @@ public class AIPatrol : MonoBehaviour
 
     void FixedUpdate()
     {
+        animator.SetBool("isWalking", mustPatrol);
         if(mustPatrol) {
             mustTurn = !Physics2D.OverlapCircle(groundCheck.position, 0.5f, groundLayer);
-            Debug.Log(mustTurn);
         }
     }
 
@@ -81,10 +90,17 @@ public class AIPatrol : MonoBehaviour
 
     IEnumerator Attack()
     {
-        Debug.Log("Attack");
-        yield return new WaitForSeconds(cooldown);
-        //animator
+        canAttack = false;
+        animator.SetTrigger("Attack");
         // Sphere collider for melle
+        Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRange, playerLayer);
+        Debug.Log("Hit player? "+ hitPlayer);
+        if(hitPlayer){
+            hitPlayer.GetComponent<Player>().TakeDamage(enemy.meleeDamage);
+        }
+
+        yield return new WaitForSeconds(cooldown);
+        canAttack = true;
     }
 
     void FaceTarget()

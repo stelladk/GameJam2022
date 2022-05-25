@@ -25,7 +25,6 @@ public class DialoguePanel : MonoBehaviour
 
     public void createDialogue(string speechText, AudioClip sound, float volume)
     {   
-        Debug.Log(speechText);
         if(speechText != ""){
             background.enabled = true;
             speekerImage.enabled = true;

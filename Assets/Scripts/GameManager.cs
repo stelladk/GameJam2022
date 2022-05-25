@@ -69,8 +69,7 @@ public class GameManager : MonoBehaviour
 
     public void OnDeath()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        StartCoroutine(ReloadScene());
     }
 
     public void OnStartCutScene()
@@ -85,5 +84,12 @@ public class GameManager : MonoBehaviour
     public void OnToxicDeath()
     {
         gameState = GameState.CUTSCENE;
+    }
+
+    IEnumerator ReloadScene()
+    {
+        yield return new WaitForSeconds(2);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 }
