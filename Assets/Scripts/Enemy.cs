@@ -4,39 +4,18 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    
-    // public float speed = 20f;
-    // public float nextWaypointDistance = 3f;
-    // Transform target;
-    // AIPatrol patrolAgent;
-    // NavMeshAgent agent;
-
-
-    // Seeker seeker;
-    // Rigidbody2D rb;
+    public int points = 10;
 
     void Start()
     {
-    //     target = GameManager.Instance.player.transform;
-        // patrolAgent = GetComponent<AIPatrol>();
-        // agent = GetComponent<NavMeshAgent>();
-        // seeker = GetComponent<Seeker>();
-        // rb = GetComponent<Rigidbody2D>();
-
-        // seeker.StartPath(rb.position, target.position, OnPathComplete);
         currentHealth = maxHealth;
-    }
-
-
-    void Update()
-    {
-
     }
 
 
     public override void Die()
     {
         Debug.Log("Enemy died!");
+        GameManager.Instance.increaseScore(points);
         Instantiate(deathEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }

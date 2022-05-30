@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c3a752dcf1c4444d9a5cf99888ed3c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 0}
   player: {fileID: 0}
   enemyPrefab: {fileID: 3931107721160521993, guid: a7a99f287e3994a6eb712419dff5fcc3, type: 3}
   enemySpawnRateMax: 15

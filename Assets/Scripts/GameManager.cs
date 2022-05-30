@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public enum GameState {GAMESTART, GAMEPLAY, CUTSCENE, DEATH};
     private GameState gameState;
 
-    [SerializeField] DialogueManager dialogueManager;
+    DialogueManager dialogueManager;
     public GameObject player;
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] float enemySpawnRateMax = 15f;
@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] float enemySpawnRateDecrease = 1f;
     
     GameObject[] spawnPoints;
+
+    ScoreBoard scoreBoard;
+    int scorePoints = 0;
 
     bool hasPowers = false;
     private float enemySpawnRate;
@@ -48,6 +51,8 @@ public class GameManager : MonoBehaviour
 
         player = GameObject.FindWithTag("Player");
         dialogueManager = FindObjectOfType<DialogueManager>();
+        scoreBoard = FindObjectOfType<ScoreBoard>();
+        scoreBoard.increaseScore(scorePoints);
     }
 
     void Update()
@@ -91,6 +96,11 @@ public class GameManager : MonoBehaviour
         string[] speeches = new string[] { "Hey there! My name is Thomas!", "But we don't have time for small talk they are after me!", "Help me move with the WASD or Arrow keys! I Jump with Space!", "Help me protect myself with Ctrl!", "And please try not to get me killed! Thank you!"};
         dialogueManager.StartDialogue(speeches);
         
+    }
+    public void increaseScore(int points)
+    {
+        scorePoints += points;
+        scoreBoard.increaseScore(points);
     }
 
     public void OnDeath()
