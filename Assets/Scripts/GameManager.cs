@@ -40,11 +40,14 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("GameManager OnStart"); //No
+        Debug.Log("GameManager OnSceneLoaded"); 
         if(spawnPoints == null || spawnPoints.Length < 1){
             spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         }
         enemySpawnRate = enemySpawnRateMax;
+
+        player = GameObject.FindWithTag("Player");
+        dialogueManager = FindObjectOfType<DialogueManager>();
     }
 
     void Update()

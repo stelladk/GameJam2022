@@ -23,15 +23,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.2d.ik": {
-      "version": "2.0.1-preview.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.2d.common": "2.0.2"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.2d.path": {
       "version": "4.0.2",
       "depth": 1,
