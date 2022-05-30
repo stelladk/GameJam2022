@@ -98,6 +98,7 @@ public class AIPatrol : MonoBehaviour
         Debug.Log("Hit player? "+ hitPlayer);
         if(hitPlayer){
             hitPlayer.GetComponent<Player>().TakeDamage(enemy.meleeDamage);
+            hitPlayer.GetComponent<Player>().onHurt();
         }
 
         yield return new WaitForSeconds(cooldown);
